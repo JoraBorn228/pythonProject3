@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Works log</h1>
+{% if current_user.is_authenticated %}
+    <a href="jobs" class="btn btn-secondary">Adding a job</a>
+{% endif %}
+{% for item in music%}
+<div class="col-md6 border rounded">
+    <br>
+    <h2>Action #{{item.id}}</h2>
+    <div>
+        <table cellspacing="5" cellpadding="10">
+            <tr>
+                <td class="alert alert-info" role="alert">Tile of activity</td>
+                <td class="alert alert-info" role="alert">Team leader</td>
+                <td class="alert alert-info" role="alert">Duration</td>
+                <td class="alert alert-info" role="alert">List of collaborators</td>
+                <td class="alert alert-info" role="alert">Is finised</td>
+            </tr>
+            <tr>
+                <td>{{item.playlist}}</td>
+                <td>{{item.number_of_files}}</td>
+                <td>{{item.executor}}</td>
+                {% if item.is_finished %}
+                    <td class="alert alert-success" role="alert">Закончено</td>
+                {% else %}
+                    <td class="alert alert-danger" role="alert">Не закончено</td>
+                {% endif %}
+            </tr>
+        </table>
+    </div>
+    {% if current_user.is_authenticated and current_user == item.user %}
+    <div>
+        <a href="/jobs/{{ item.id }}" class="btn btn-warning">
+            Добавить плейлист
+        </a>
+        <a href="/jobs_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить <плейлист></плейлист>
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}
