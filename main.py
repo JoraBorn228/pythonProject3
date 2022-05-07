@@ -92,7 +92,7 @@ def add_jobs():
         db_sess.merge(current_user)
         db_sess.commit()
         return redirect('/')
-    return render_template('jobs.html', title='Adding a job', form=form)
+    return render_template('jobs.html', title='псюн a job', form=form)
 
 
 @app.route('/jobs/<int:id>', methods=['GET', 'POST'])
