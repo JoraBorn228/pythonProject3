@@ -5,7 +5,7 @@ from werkzeug.utils import redirect
 
 from data import db_session
 from data.music import Music
-from data.user import User
+
 from forms.music import MusicForm
 from forms.user import RegisterForm, LoginForm
 
