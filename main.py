@@ -82,7 +82,7 @@ def add_jobs():
     if form.validate_on_submit():
         db_sess = db_session.create_session()
         jobs = Music()
-        jobs.playlist = form.playlist.data
+        jobs.playlist = form.huy.data
         jobs.number_of_files = form.number_of_files.data
         jobs.executor = form.executor.data
         jobs.start_date = form.start_date.data
